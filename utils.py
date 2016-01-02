@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import requests
-import tabulate
 
 def get_to_dict(user_id):
     if not (user_id > 0 and user_id <= 100):
@@ -12,7 +11,16 @@ def get_to_dict(user_id):
 
 def fetch_to_table(user_id):
     data = get_to_dict(user_id)
-    return tabulate.tabulate(
-        [[item, data[item]] for item in data],
-        headers=["key", "value"],
-        tablefmt="html")
+    return """<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>""" + data["title"] + """</title>
+    </head>
+
+    <body>
+        <h1>""" + data["title"] + """</h1>
+
+        <p style=\"font-size: 16px; line-height: 1.2; color: #262626; font-family: \"Helvetica\",Helvetica,Arial,sans-serif; font-weight: 400;\">""" + data["body"] + """
+        </p>
+    </body></html>"""
