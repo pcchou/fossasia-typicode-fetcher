@@ -11,16 +11,4 @@ def get_to_dict(user_id):
 
 def fetch_to_table(user_id):
     data = get_to_dict(user_id)
-    return """<!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <title>""" + data["title"] + """</title>
-    </head>
-
-    <body>
-        <h1>""" + data["title"] + """</h1>
-
-        <p style=\"font-size: 16px; line-height: 1.2; color: #262626; font-family: \"Helvetica\",Helvetica,Arial,sans-serif; font-weight: 400;\">""" + data["body"] + """
-        </p>
-    </body></html>"""
+    return "Title: {0}\nText: {1}".format(data["title"], data["body"])
