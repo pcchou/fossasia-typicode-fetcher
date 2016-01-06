@@ -4,9 +4,12 @@ import utils
 
 print("Let's fetch data from Typicode!")
 
-user_id = int(input("Enter your user_id: "))
+try:
+    user_id = int(input("Enter your user_id: "))
 
-result = utils.fetch_to_table(user_id)
+    result = utils.fetch_to_table(user_id)
 
-print("Done!\n")
-print(result)
+    print("Done!\n")
+    print(result)
+except (NameError, ValueError) as e:
+    print("Invalid input! Try again.")
